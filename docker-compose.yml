@@ -1,0 +1,15 @@
+services:
+  hostelfix-lpu:
+    build: .
+    container_name: hostelfix_360_lpu
+    ports:
+      - "8000:8000"
+    environment:
+      - HOSTELFIX_SECRET_KEY=change-this-in-production-lpu-secret
+      - HOSTELFIX_DATA_DIR=/app/data
+    volumes:
+      - hostelfix_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  hostelfix_data:
